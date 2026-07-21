@@ -58,7 +58,11 @@ class Cake {
 
     // Cake base
     const baseGeometry = new THREE.ConeGeometry(2, 1, 32);
-    const baseMaterial = new THREE.MeshPhongMaterial({ color: 0xff69b4 });
+    const baseMaterial = new THREE.MeshPhongMaterial({ 
+      color: 0xff69b4,
+      transparent: true,
+      opacity: 1
+    });
     this.baseMesh = new THREE.Mesh(baseGeometry, baseMaterial);
     this.baseMesh.position.y = 0;
     this.group.add(this.baseMesh);
@@ -102,6 +106,8 @@ class Balloon {
     const balloonMaterial = new THREE.MeshPhongMaterial({
       color: new THREE.Color().setHSL(Math.random(), 1, 0.5),
       shininess: 100,
+      transparent: true,
+      opacity: 1
     });
     this.balloonMesh = new THREE.Mesh(balloonGeometry, balloonMaterial);
     this.balloonMesh.position.y = 2;
@@ -143,6 +149,8 @@ class Gift {
     const boxGeometry = new THREE.BoxGeometry(1.5, 1.5, 1.5);
     const boxMaterial = new THREE.MeshPhongMaterial({
       color: new THREE.Color().setHSL(Math.random(), 0.8, 0.5),
+      transparent: true,
+      opacity: 1
     });
     this.box = new THREE.Mesh(boxGeometry, boxMaterial);
     this.group.add(this.box);
