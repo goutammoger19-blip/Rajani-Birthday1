@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Rajani! 🎂</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="stars" aria-hidden="true"></div>
+  <div class="confetti-container" id="confetti" aria-hidden="true"></div>
+
+  <button class="music-btn" id="musicBtn" aria-label="Toggle birthday music">
+    <span class="music-icon">🎵</span>
+    <span class="music-label">Play Music</span>
+  </button>
+
+  <audio id="birthdayMusic" loop preload="auto">
+    <source src="music.mp3" type="audio/mpeg" />
+  </audio>
+
+  <nav class="progress-bar" id="progressBar" aria-label="Adventure progress">
+    <div class="step active" data-step="0"><span>1</span> Start</div>
+    <div class="step" data-step="1"><span>2</span> Bubbles</div>
+    <div class="step" data-step="2"><span>3</span> Puzzle</div>
+    <div class="step" data-step="3"><span>4</span> Wish</div>
+  </nav>
+
+  <main class="container">
+    <!-- Stage 1: Hero -->
+    <section class="stage hero" id="hero">
+      <div class="cake-icon">🎂</div>
+      <h1 class="title">
+        <span class="line">Happy Birthday</span>
+        <span class="name">Rajani</span>
+      </h1>
+      <p class="subtitle">A surprise adventure awaits you...<br />Are you ready? 🎁</p>
+      <button class="btn-primary" id="startAdventure">Begin the Surprise ✨</button>
+    </section>
+
+    <!-- Stage 2: Bubble Pop -->
+    <section class="stage bubble-stage hidden" id="bubbleStage">
+      <div class="stage-card">
+        <h2 class="stage-title">Pop the Magic Bubbles! 🫧</h2>
+        <p class="stage-hint">Pop every bubble to reveal a secret name hidden inside...</p>
+
+        <div class="bubble-progress">
+          <div class="progress-track">
+            <div class="progress-fill" id="bubbleProgressFill"></div>
+          </div>
+          <span class="progress-text" id="bubbleProgressText">0 / 12 popped</span>
+        </div>
+
+        <div class="letter-slots" id="letterSlots" aria-label="Collected letters"></div>
+
+        <div class="bubble-arena" id="bubbleArena"></div>
+
+        <p class="stage-status" id="bubbleStatus">Tap the bubbles before they float away!</p>
+        <button class="btn-primary hidden" id="bubbleNext">Solve the Puzzle 🔐</button>
+      </div>
+    </section>
+
+    <!-- Stage 3: Sliding Puzzle -->
+    <section class="stage puzzle-stage hidden" id="puzzleStage">
+      <div class="stage-card">
+        <h2 class="stage-title">Unlock the Gift! 🧩</h2>
+        <p class="stage-hint">Slide the tiles to complete the birthday picture</p>
+
+        <div class="puzzle-stats">
+          <span>Moves: <strong id="moveCount">0</strong></span>
+          <span>Time: <strong id="puzzleTimer">0:00</strong></span>
+        </div>
+
+        <div class="puzzle-board" id="puzzleBoard" role="grid" aria-label="Sliding puzzle"></div>
+
+        <p class="stage-status" id="puzzleStatus">Click a tile next to the empty space to slide it</p>
+        <button class="btn-secondary btn-small" id="shufflePuzzle">Shuffle 🔀</button>
+        <button class="btn-primary hidden" id="puzzleNext">Open Your Wish 💌</button>
+      </div>
+    </section>
+
+    <!-- Stage 4: Final Wish -->
+    <section class="stage wish-card hidden" id="wishCard">
+      <div class="card-inner reveal-animation">
+        <div class="card-header">
+          <span class="balloon">🎈</span>
+          <span class="balloon delay-1">🎈</span>
+          <span class="balloon delay-2">🎈</span>
+        </div>
+
+        <div class="photo-frame">
+          <img
+            src="images/rajani.jpg"
+            alt="Rajani"
+            class="birthday-photo"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div class="photo-placeholder">
+            <span>📷</span>
+            <p>Add your photo as<br /><code>images/rajani.jpg</code></p>
+          </div>
+        </div>
+
+        <div class="message">
+          <p>Dear <strong>Rajani</strong>,</p>
+          <p>
+            You popped every bubble and solved the puzzle — just like you solve
+            every challenge with grace and sparkle! ✨
+          </p>
+          <p>
+            On this wonderful day, I want you to know how special you are.
+            May your year ahead bloom with beautiful moments and endless happiness.
+          </p>
+          <p>
+            Here's to laughter that echoes, dreams that come true,
+            and a birthday as amazing as you are! 🌸
+          </p>
+          <p class="signature">With love &amp; warm wishes 💖</p>
+        </div>
+
+        <div class="sparkle-row" aria-hidden="true">✨ 🎉 🎁 ✨</div>
+        <button class="btn-secondary" id="celebrateBtn">Celebrate! 🎊</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Made with ❤️ for Rajani's special day</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
