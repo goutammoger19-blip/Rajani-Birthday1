@@ -8,7 +8,6 @@ let particles = [];
 let cakes = [];
 let balloons = [];
 let gifts = [];
-let currentStage = 0;
 
 class Particle {
   constructor() {
