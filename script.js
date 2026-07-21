@@ -36,6 +36,11 @@ function setProgress(step) {
     el.classList.toggle("active", i === step);
     el.classList.toggle("done", i < step);
   });
+  
+  // Update 3D scene
+  if (typeof setThreeStage === 'function') {
+    setThreeStage(step);
+  }
 }
 
 function showStage(name) {
@@ -65,6 +70,12 @@ function createConfetti(count = 80) {
     piece.style.animationDelay = `${Math.random() * 0.5}s`;
     confettiContainer.appendChild(piece);
   }
+  
+  // Add 3D confetti if available
+  if (typeof addConfetti3D === 'function') {
+    addConfetti3D(Math.floor(count / 2));
+  }
+  
   setTimeout(() => { confettiContainer.innerHTML = ""; }, 5000);
 }
 
